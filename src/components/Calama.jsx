@@ -11,7 +11,7 @@ const Calama = () => {
     return (
         <>
             <h1>Calama </h1>
-            <p>Ciudad heorica bastion de chilenidad</p>
+            <p>Ciudad heroica bastion de chilenidad</p>
             
         </>
     )
