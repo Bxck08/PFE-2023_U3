@@ -7,6 +7,7 @@ import HolaMundo from './components/HolaMundo.jsx'
 import Calama from './components/Calama.jsx'
 import Ejercicio01 from './components/ejercicios/Ejercicio01.jsx'
 import Tareas from './components/Tareas/Tareas.jsx'
+import './index.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 

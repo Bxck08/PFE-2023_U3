@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import AgregarTareaFragments from "./fragments/AgregarTareaFragments";
+import MostrarTareasFragments from "./fragments/MostrarTareasFragments";
 
 const listaEjemplo = [
 {
@@ -36,6 +38,12 @@ const Tareas = () =>{
             setNombreTarea('')
         }
     }
+    const handleEliminarTarea = (id) => {
+        let tareasFiltradas = tareas.filter(tarea => {
+            return tarea.id !== id
+        })
+        setTareas(tareasFiltradas)
+    }
 
     return (
     <div>
@@ -43,21 +51,18 @@ const Tareas = () =>{
             <div className="col-12">
                 <h1>Tareas</h1>
             </div>
-            <div className="col-12">
-                <label htmlFor="tarea">Añadir nueva tarea</label>
-                <input type="text" onChange={handleModificarTarea} className='form-control my-2' id="nombre-tarea" value={nombreTarea} />
-                <button type="button" className="btn btn-primary" onClick={handleBotonAgregarTarea}>Añadir</button>
-            </div>
+            <AgregarTareaFragments
+                nombreTarea={nombreTarea}
+                handleModificarTarea={handleModificarTarea}
+                handleBotonAgregarTarea={handleBotonAgregarTarea}
+            />
             <div className="col-12 mt-4">
                 <h2>Lista de tareas</h2>
             </div>
-            <div className="col-12">
-                <ul className="list-group">
-                    {
-                        tareas.map(tarea => <li className="list-group-item" key={tarea.id}>{tarea.nombre}</li>)
-                    }
-                </ul>
-            </div>
+            <MostrarTareasFragments
+                tareas={tareas}
+                handleEliminarTarea={handleEliminarTarea}
+            />
         </div>
     </div>
     )
